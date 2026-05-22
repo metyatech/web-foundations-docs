@@ -1,0 +1,168 @@
+---
+title: パス・URL・外部ファイル
+---
+
+# パス・URL・外部ファイル
+
+HTMLから別のページや別ファイルを指定するときは、**その場所を表す文字列**を書きます。
+
+その文字列が、**URL** や **パス** です。
+
+このページでは、リンク、画像、CSS、JavaScriptの書き方そのものではなく、
+それらに共通する「どこにあるファイルやリソースなのか」を指定する考え方だけを扱います。
+
+## URLとパス
+
+**URL** は、Web上のリソースの場所を表します。
+
+```text
+https://example.com/about.html
+```
+
+**パス** は、いま作っているファイルから見た、別ファイルの場所を表します。
+
+```text
+about.html
+images/logo.png
+style.css
+main.js
+```
+
+どちらも目的は同じです。**必要なファイルやリソースの場所をコンピューターに伝える**ために使います。
+
+## 絶対URLと相対パス
+
+### 絶対URL
+
+`https://` から始まるようなURLは、Web上の場所を最初から最後まで指定しています。
+
+```text
+https://example.com/about.html
+```
+
+これは、住所を都道府県から最後まで書くような指定です。
+
+### 相対パス
+
+相対パスは、**いまいるファイルの場所を基準**にして、別ファイルの場所を指定します。
+
+```text
+about.html
+images/logo.png
+```
+
+これは、「同じフォルダにある `about.html`」「`images` フォルダの中にある `logo.png`」のように、
+現在地から見た場所を伝える指定です。
+
+## `href`属性と`src`属性
+
+HTMLでは、ファイルやリソースの場所を属性に書くことがあります。
+
+- `href`属性：参照先の場所を書く
+- `src`属性：読み込む元の場所を書く
+
+たとえば、次の `about.html` や `images/logo.png` は、タグの学習ではなく、
+**場所を表す文字列の例**として見てください。
+
+```html
+href="about.html"
+src="images/logo.png"
+src="main.js"
+href="style.css"
+```
+
+タグの種類が変わっても、考え方は同じです。**属性の値に、必要なファイルの場所を書く**だけです。
+
+## 同じフォルダにあるファイル
+
+次のように、`index.html` と `about.html` が同じフォルダにあるとします。
+
+```text
+site/
+├── index.html
+└── about.html
+```
+
+`index.html` から `about.html` を指定するときは、ファイル名だけで書けます。
+
+```text
+about.html
+```
+
+同じフォルダにある `style.css` や `main.js` も同じです。
+
+```text
+style.css
+main.js
+```
+
+**同じ場所にあるファイルは、ファイル名だけで指定できる**と覚えておきましょう。
+
+## 子フォルダの中にあるファイル
+
+次のように、`images` フォルダの中に `logo.png` があるとします。
+
+```text
+site/
+├── index.html
+└── images/
+    └── logo.png
+```
+
+`index.html` から `logo.png` を指定するときは、フォルダ名も含めて書きます。
+
+```text
+images/logo.png
+```
+
+`scripts` フォルダの中に `main.js` がある場合も同じです。
+
+```text
+site/
+├── index.html
+└── scripts/
+    └── main.js
+```
+
+この場合のパスは、次のようになります。
+
+```text
+scripts/main.js
+```
+
+**子フォルダの中にあるファイルは、フォルダ名、スラッシュ、ファイル名の順に書く**と覚えておきましょう。
+
+## フォルダ構成からパスを読む
+
+パスを書くときは、先にフォルダ構成を確認します。
+
+```text
+site/
+├── index.html
+├── about.html
+├── style.css
+├── images/
+│   └── logo.png
+└── scripts/
+    └── main.js
+```
+
+`index.html` から見た場所は、次のようになります。
+
+| 指定したいもの | 書くパス |
+| --- | --- |
+| 同じフォルダの `about.html` | `about.html` |
+| 同じフォルダの `style.css` | `style.css` |
+| `images` フォルダの `logo.png` | `images/logo.png` |
+| `scripts` フォルダの `main.js` | `scripts/main.js` |
+
+**いまのファイルから目的のファイルまでの道順**として考えます。
+
+## 覚えておくこと
+
+- URLやパスは、**別のファイルやリソースの場所を指定する文字列**です。
+- `https://` から始まるものは、Web上の場所を表す絶対URLです。
+- `about.html` のような書き方は、いまのファイルを基準にした相対パスです。
+- 同じフォルダのファイルは、`about.html` のようにファイル名だけで指定できます。
+- 子フォルダのファイルは、`images/logo.png` のようにフォルダ名も含めて指定します。
+- `href`属性や`src`属性では、値としてURLやパスを書くことがあります。
