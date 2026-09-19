@@ -57,7 +57,6 @@ Required GitHub Actions secrets:
 ## Compliance
 
 - [LICENSE](LICENSE)
-- [SECURITY.md](SECURITY.md)
 - [CONTRIBUTING.md](CONTRIBUTING.md)
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - [CHANGELOG.md](CHANGELOG.md)
